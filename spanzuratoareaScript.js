@@ -14,9 +14,9 @@ function addWord() {
 		<div id="id_inputBtn" class="input-group mb-3" style="width: 20rem; margin:0 auto;">
 			<input id="insertLetter_input" type="text" class="form-control" placeholder="Introduceti o litera">
 				<button id="insertLetter_button" class="btn btn-outline-danger" type="button" onclick="findLetter()"><i class="las la-angle-double-left"></i></button>
-			</div>
-			<p id="id_lives">Numar de vieti: ` + lives + `</p>
-			`;
+		</div>
+		<p id="id_lives">Numar de vieti: ` + lives + `</p>
+		`;
 }
   	
 function findLetter() {
@@ -38,18 +38,18 @@ function findLetter() {
 	document.getElementById("id").innerHTML += `
 		` + letter.toUpperCase() + `
 			`;
-		if (lives == 0) {
+	if (lives == 0) {
+	document.getElementById("id_inputBtn").innerHTML = `
+		<div class="card-body text-center" style="width: 30rem; margin:0 auto;">
+			<h1 style="color:red">GAME OVER</h>
+		</div>
+	`;
+	}
+	if(!findWord.includes("_")) {
 		document.getElementById("id_inputBtn").innerHTML = `
-			<div class="card-body text-center" style="width: 30rem; margin:0 auto;">
-				<h1 style="color:red">GAME OVER</h>
-			</div>
-		`;
-		}
-		if(!findWord.includes("_")) {
-			document.getElementById("id_inputBtn").innerHTML = `
-			<div class="card-body text-center" style="width: 30rem; margin:0 auto;">
-				<h1 style="color:blue">WINNER</h>
-			</div>
-		`;
-		}
+		<div class="card-body text-center" style="width: 30rem; margin:0 auto;">
+			<h1 style="color:blue">WINNER</h>
+		</div>
+	`;
+	}
 }
